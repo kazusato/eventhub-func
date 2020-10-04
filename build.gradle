@@ -51,7 +51,7 @@ jar {
 
 azurefunctions {
     resourceGroup = 'java-functions-group'
-    appName = 'eventhub-func'
+    appName = 'kseventhubfunc'
     pricingTier = 'Consumption'
     region = 'japaneast'
     runtime {
