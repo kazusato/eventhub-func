@@ -4,9 +4,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class MessageProcessingFunction {
+class MsgProcFunction {
 }
 
 fun main(args: Array<String>) {
-	runApplication<MessageProcessingFunction>(*args)
+	runApplication<MsgProcFunction>(*args)
 }

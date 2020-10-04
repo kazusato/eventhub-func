@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import java.util.function.Consumer
 
-@Service
+//@Service
 class MsgProc : Consumer<String> {
 
 	companion object {
@@ -13,7 +13,9 @@ class MsgProc : Consumer<String> {
 	}
 
 	override fun accept(msg: String) {
-		logger.info("======== HELLO WORLD ========")
+		logger.info("======== FUNCTION SVRVICE START ========")
+		logger.info("Input message: ${msg}")
+		logger.info("======== FUNCTION SERVICE END ========")
 	}
 
 }

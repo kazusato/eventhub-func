@@ -7,17 +7,18 @@ import com.microsoft.azure.functions.annotation.HttpTrigger
 import org.springframework.cloud.function.adapter.azure.AzureSpringBootRequestHandler
 import java.util.*
 
-class MessageProcessingHandler : AzureSpringBootRequestHandler<String, Void>() {
+class MsgProcHandler : AzureSpringBootRequestHandler<MsgReq, MsgResp>() {
 
-	@FunctionName("MsgProc")
+	@FunctionName("MsgProcService")
 	fun exec(
 			@HttpTrigger(name = "req", methods = [HttpMethod.POST], authLevel = AuthorizationLevel.ANONYMOUS)
-			req: HttpRequestMessage<Optional<String>>,
+			req: HttpRequestMessage<Optional<MsgReq>>,
 			ctx: ExecutionContext
 	): HttpResponseMessage {
-		handleRequest(req.body.get(), ctx)
+		ctx.logger.info("FUNCTION INPUT: ${req.body.get()}")
+
 		return req.createResponseBuilder(HttpStatus.OK)
-				.body("{\"message\": \"hello world\"}")
+				.body(handleRequest(req.body.get(), ctx))
 				.header("Content-Type", "application/json")
 				.build()
 	}
