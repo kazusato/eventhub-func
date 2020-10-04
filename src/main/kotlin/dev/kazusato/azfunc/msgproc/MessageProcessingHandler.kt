@@ -9,7 +9,7 @@ import java.util.*
 
 class MsgProcHandler : AzureSpringBootRequestHandler<MsgReq, MsgResp>() {
 
-	@FunctionName("myMsgProc")
+	@FunctionName("MsgProc")
 	fun exec(
 			@HttpTrigger(name = "req", methods = [HttpMethod.POST], authLevel = AuthorizationLevel.ANONYMOUS)
 			req: HttpRequestMessage<Optional<MsgReq>>,
